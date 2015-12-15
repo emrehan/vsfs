@@ -15,7 +15,6 @@ int  disk_fd;          // disk file handle
 int  disk_blockcount;  // block count on disk
 
 
-
 /* 
    Reads block blocknum into buffer buf.
    You will not modify the getblock() function. 
@@ -27,12 +26,14 @@ int getblock (int blocknum, void *buf)
 	
 	if (blocknum >= disk_blockcount) 
 		return (-1); //error
+
 	offset = lseek (disk_fd, blocknum * BLOCKSIZE, SEEK_SET); 
 	if (offset == -1) {
 		printf ("lseek error\n"); 
 		exit(0); 
 
 	}
+
 	n = read (disk_fd, buf, BLOCKSIZE); 
 	if (n != BLOCKSIZE) 
 		return (-1); 
@@ -58,13 +59,13 @@ int putblock (int blocknum, void *buf)
 		printf ("lseek error\n"); 
 		exit (1); 
 	}
+	
 	n = write (disk_fd, buf, BLOCKSIZE); 
 	if (n != BLOCKSIZE) 
 		return (-1); 
 
 	return (0); 
 }
-
 
 
 
@@ -97,7 +98,6 @@ int vsfs_format(char *vdisk, int dsize)
 
 	return (0); 
 }
-
 
 
 /* 
