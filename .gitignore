@@ -1,3 +1,9 @@
+app
+formatdisk
+libvsfs.a
+makedisk
+mydisc
+vsfs.o
 
 # Created by https://www.gitignore.io/api/linux,osx,sublimetext,emacs
 
