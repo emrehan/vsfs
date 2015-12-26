@@ -8,6 +8,15 @@
 
 #include "vsfs.h"
 
+#define BLOCKSIZE       4096 // bytes
+#define MAXFILECOUNT    128 // max number of files that FS can support
+#define MAXDISKSIZE     (1<<28) // 256MB - max size FS can support
+#define MINDISKSIZE     (1<<20) // 1MB - min size FS need
+#define MAXFILENAMESIZE 128 // characters - max characters FS can support for file names
+#define MAXBLOCKCOUNT   (MAXDISKSIZE / BLOCKSIZE)
+#define MAXOPENFILES    128 // files
+#define MAXREADWRITE    1024 // bytes; max read/write amount
+
 // Global Variables
 char disk_name[128];   // name of virtual disk file
 int  disk_size;        // size in bytes - a power of 2
